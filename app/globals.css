@@ -25,6 +25,10 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+* {
+  transition: all ease-in-out 100ms;
+
+}
 
 @layer utilities {
   .text-balance {
