@@ -11,11 +11,10 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
+    --background-start-rgb: 10, 10, 10;
     --background-end-rgb: 0, 0, 0;
   }
 }
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -25,10 +24,10 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-* {
-  transition: all ease-in-out 100ms;
-
-}
+/* * { */
+/*   transition: all ease-in-out 100ms; */
+/**/
+/* } */
 
 @layer utilities {
   .text-balance {
