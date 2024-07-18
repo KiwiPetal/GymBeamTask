@@ -1,7 +1,7 @@
 "use client";
 import {useEffect, useRef, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
-import {Iitem, Iitemprops} from "../utilities/constants";
+import {Iitem, Iitemprops, apiEndpoint} from "../utilities/constants";
 import axios from "axios";
 
 export default function NewList() {
@@ -59,7 +59,7 @@ export default function NewList() {
   }
 
   const handleSend = () => {
-    axios.post("https://66953a884bd61d8314ca986c.mockapi.io/api/lists", {
+    axios.post(apiEndpoint, {
       name: listName,
       items: itemList
     }).then(() => {

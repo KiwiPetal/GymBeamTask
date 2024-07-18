@@ -1,7 +1,7 @@
 "use client";
 import {useEffect, useRef, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
-import {Iitem, Iitemprops, Ilist} from "../utilities/constants";
+import {Iitem, Iitemprops, Ilist, apiEndpoint} from "../utilities/constants";
 import axios from "axios";
 
 export default function ReadLists() {
@@ -16,7 +16,7 @@ export default function ReadLists() {
   // Handlers {{{
   const handleUpdate = () => {
     setLoading(true);
-    axios.get("https://66953a884bd61d8314ca986c.mockapi.io/api/lists").then((res) => {
+    axios.get(apiEndpoint).then((res) => {
       setLists(res.data);
       setLoading(false);
     });
@@ -92,14 +92,14 @@ export function List({list}: listVars) {
   }
 
   const handleSend = () => {
-    axios.put(`https://66953a884bd61d8314ca986c.mockapi.io/api/lists/${list.id}`, {
+    axios.put(`${apiEndpoint + list.id}`, {
       name: listName,
       items: itemList
     });
   }
 
   const handleDelete = () => {
-    axios.delete(`https://66953a884bd61d8314ca986c.mockapi.io/api/lists/${list.id}`).then(() => {
+    axios.delete(`${apiEndpoint + list.id}`).then(() => {
       window.location.reload();
     })
   }
