@@ -25,11 +25,11 @@ export default function ReadLists() {
 
   // Render {{{
   return (
-    <div className="flex flex-col flex-wrap w-full md:flex-row md:justify-center gap-6">
+    <div className="flex flex-col flex-wrap w-full mb-24 md:flex-row md:justify-center gap-6">
     {lists.map((list, list_i) => {
       return (
         <div key={"list"+list_i}>
-          <List list={list} />
+          <List list={list} handleUpdate={handleUpdate} />
         </div>
       )
     })}
@@ -40,9 +40,10 @@ export default function ReadLists() {
 
 // List component {{{
 interface listVars {
-  list: Ilist
+  list: Ilist;
+  handleUpdate: () => void;
 }
-export function List({list}: listVars) {
+export function List({list, handleUpdate}: listVars) {
   const [listName, setListName] = useState(list.name);
   const [itemList, setItemList] = useState<Iitem[]>(list.items);
   const [tagsInput, setTagsInput] = useState<Record<number, string>>({});
@@ -100,7 +101,7 @@ export function List({list}: listVars) {
 
   const handleDelete = () => {
     axios.delete(`${apiEndpoint + list.id}`).then(() => {
-      window.location.reload();
+      handleUpdate()
     })
   }
   // }}}
