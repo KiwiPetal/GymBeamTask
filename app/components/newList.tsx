@@ -174,7 +174,6 @@ export default function NewList() {
         className={`${listName === "" ? "bg-transparent" : "bg-stone-100 border-2 border-stone-300 shadow-xl dark:border-none dark:bg-stone-900"} flex flex-col text-black dark:text-white p-3 rounded items-center container gap-2 md:w-64 overflow-hidden`}>
 
 
-        { /* TODO auto expand? */}
         <input
           placeholder="New List Name..."
           value={listName}
