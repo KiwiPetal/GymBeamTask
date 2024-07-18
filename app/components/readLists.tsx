@@ -372,7 +372,7 @@ export function List({list}: listVars) {
   return (
     <AnimatePresence>
       <div
-        className={`flex flex-col w-full relative bg-stone-100 dark:border-none border-2 border-stone-300 shadow-xl text-black dark:text-white dark:bg-stone-900 p-3 rounded items-center container gap-2 overflow-hidden`}>
+        className={`flex flex-col w-full md:max-w-96 relative bg-stone-100 dark:border-none border-2 border-stone-300 shadow-xl text-black dark:text-white dark:bg-stone-900 p-3 rounded items-center container gap-2 overflow-hidden`}>
 
         <input
           placeholder="New List Name..."
